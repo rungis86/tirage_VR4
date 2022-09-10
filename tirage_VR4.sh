@@ -1,6 +1,52 @@
 #! /bin/bash
 
-liste_figures=/home/remi/liste_figures_VR4.txt
+accueil_programme(){
+	cat <<EOF
+
+
+############################ Tirage au sort VR4 ############################
+
+Ce script permet de réaliser un tirage au sort aléatoire de 10 sauts de VR4.
+Vous aurez la possibilité de choisir les règles N1 ou N2.
+
+N1 >> tous les blocs sont présents dans le tirage, chaque manche compte
+4 ou 5 points.
+N2 >> les blocs N1 ne sont pas présents, chaque manche compte 4 ou 5 points.
+
+############################################################################
+
+
+EOF
+}
+
+choix_N1_N2(){
+	cat <<EOF
+Veuillez choisir la catégorie N1 ou N2 :
+	1) N1
+	2) N2
+
+EOF
+
+	read categorie
+
+	if ! [[ $categorie =~ ^[1-2]$ ]]; then
+		echo "Erreur ! Veuillez taper 1 ou 2"
+		echo ""
+		echo ""
+		sleep 1
+		choix_N1_N2
+	fi
+}
+
+selection_liste_figures(){
+	if [[ categorie -eq 1 ]]; then
+		liste_figures=liste_figures_VR4_N1.txt
+		nb_points=5
+	else
+		liste_figures=liste_figures_VR4_N2.txt
+		nb_points=4
+	fi
+}
 
 melange_figures(){
 	sort -R -o $liste_figures $liste_figures
@@ -18,9 +64,9 @@ boucle(){
 	for i in $(seq 10); do
 		saut[$i]=0
 		for j in $(seq 6); do
-			if (( ${saut[$i]} < 5)); then
+			if (( ${saut[$i]} < $nb_points)); then
 				figure[$k]=$(sed -n "$l p" $liste_figures)
-				if let ${figure[$k]} 2>/dev/nul; then
+				if [[ ${figure[$k]} =~ ^[0-9]+$ ]]; then
 					(( saut[$i]++ ))
 					(( saut[$i]++ ))
 				else
@@ -49,6 +95,9 @@ EOF
 }
 
 main(){
+	accueil_programme
+	choix_N1_N2
+	selection_liste_figures
 	melange_figures
 	init_valeurs_sauts
 	boucle
