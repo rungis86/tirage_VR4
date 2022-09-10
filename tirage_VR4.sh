@@ -82,8 +82,15 @@ boucle(){
 	done
 }
 
+tri_fichier_liste_figures(){
+	sort -n -o $liste_figures $liste_figures
+}
+
 sortie(){
 cat <<EOF
+
+###### Tirage au sort VR4 N$categorie ######
+
 Saut 1	Saut 2	Saut 3	Saut 4	Saut 5	Saut 6	Saut 7	Saut 8	Saut 9	Saut 10
 ${figure[1]}	${figure[7]}	${figure[13]}	${figure[19]}	${figure[25]}	${figure[31]}	${figure[37]}	${figure[43]}	${figure[49]}	${figure[55]}
 ${figure[2]}	${figure[8]}	${figure[14]}	${figure[20]}	${figure[26]}	${figure[32]}	${figure[38]}	${figure[44]}	${figure[50]}	${figure[56]}
@@ -101,6 +108,7 @@ main(){
 	melange_figures
 	init_valeurs_sauts
 	boucle
+	tri_fichier_liste_figures
 	sortie
 }
 
