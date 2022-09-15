@@ -1,6 +1,9 @@
 #! /bin/bash
 
 accueil_programme(){
+
+if [ ! "$1" ]; then
+
 	cat <<EOF
 
 
@@ -17,9 +20,15 @@ N2 >> les blocs N1 ne sont pas présents, chaque manche compte 4 ou 5 points.
 
 
 EOF
+
+fi
+
 }
 
 choix_N1_N2(){
+
+if [ ! "$1" ]; then
+
 	cat <<EOF
 Veuillez choisir la catégorie N1 ou N2 :
 	1) N1
@@ -36,9 +45,16 @@ EOF
 		sleep 1
 		choix_N1_N2
 	fi
+else
+	categorie="$1"
+fi
+
 }
 
 choix_nombre_manches(){
+
+if [ ! "$1" ]; then
+
 	cat <<EOF
 Veuillez choisir le nombre de manches (Entre 1 et 11) :
 
@@ -53,6 +69,10 @@ EOF
 		sleep 1
 		choix_nombre_manches
 	fi
+else
+	nb_manches="$1"
+fi
+
 }
 
 selection_liste_figures(){
@@ -134,9 +154,9 @@ EOF
 }
 
 main(){
-	accueil_programme
-	choix_N1_N2
-	choix_nombre_manches
+	accueil_programme "$1"
+	choix_N1_N2 "$1"
+	choix_nombre_manches "$2"
 	selection_liste_figures
 	melange_figures
 	init_valeurs_sauts
@@ -146,4 +166,4 @@ main(){
 	sortie
 }
 
-main
+main "$1" "$2"
