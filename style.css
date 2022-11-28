@@ -1,0 +1,100 @@
+body {
+	background-image: url("background.png");
+	background-attachment: fixed;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.header {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+h1 {
+	font-family:'Courier New', Courier, monospace;
+	font-size: 20px;
+	text-align: center;
+	vertical-align: middle;
+	border: none;
+	border-radius: 20px;
+	background-color: white;
+	opacity: 0.6;
+	padding: 20px 20px 20px 20px;
+	position: absolute;
+	left: 50%;
+	right: 10%;
+	top: 65%;
+}
+
+.introduction {
+	font-size: 1.8em;
+	text-align: center;
+	vertical-align: middle;
+	border: none;
+	border-radius: 20px;
+	background-color: white;
+	opacity: 0.5;
+	padding: 20px 20px 20px 20px;
+	width : 70%;
+	position: relative;
+	left: 15%;
+}
+
+.intro-title {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+ul {
+	width: 70%;
+	left: 15%;
+	text-align: justify;
+	position: relative;
+}
+
+.form {
+	font-size: 1.8em;
+	border: none;
+        border-radius: 20px;
+        background-color: white;
+        opacity: 0.5;
+        padding: 20px 20px 20px 20px;
+        width : 60%;
+        position: absolute;    
+        left: 20%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	height: 400px;
+}
+
+.form p {
+	width: 40%;
+}
+
+.N1_N2_select {
+	float: left;
+	margin-left: 5%
+}
+
+.number_of_rounds_select {
+	
+	float: left;
+	margin-left: 10%;
+	margin-right: 5%;
+}
+
+.validate_button {
+	position: relative;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.script_output{
+	font-size: 1.6em;
+	position: relative;
+	left: 22%;
+	top: 30%;
+	width: 60%;
+}
