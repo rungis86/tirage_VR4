@@ -3,8 +3,19 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="icon" href="vr4.ico" type="image/x-icon">
 	<title>Tirage au sort VR4</title>
-</head>
+  	<script>
+        document.addEventListener("DOMContentLoaded", function() {
+			if (window.location.hash === "#result") {
+				document.getElementById("result").scrollIntoView({
+					behavior: 'smooth'
+				});
+			}
+		});
+    </script>
+ </head>
 
 <body>
 	<header class="header">
@@ -22,29 +33,24 @@
 		</ul>
 	</div>
 	
-	<form class="form" method="post" action="">
+	<form class="form" method="post" action="#result">
 		<p class="N1_N2_select">
-			Sélectionner la catégorie&nbsp:<br />
-			<input type="radio" name="categorie" value="1" id="N1" checked /> <label for="N1">N1</label><br />
-			<input type="radio" name="categorie" value="2" id="N2" /> <label for="N2">N2</label><br />
+			<label class="category-label">Sélectionner la catégorie :</label>
+			<input type="radio" name="categorie" value="1" id="N1" <?php echo (isset($_POST['categorie']) && $_POST['categorie'] == '1') ? 'checked' : ''; ?> /> <label for="N1">Nationale 1 (N1)</label><br />
+			<input type="radio" name="categorie" value="2" id="N2" <?php echo (isset($_POST['categorie']) && $_POST['categorie'] == '2') ? 'checked' : ''; ?> /> <label for="N2">Nationale 2 (N2)</label><br />
 		</p>
 		<p class="number_of_rounds_select">
 			Choisir le nombre de manches à tirer au sort&nbsp:<br />
 			<select class="number_of_rounds_list" name="number_of_rounds" id="number_of_rounds"/><br />
-				<option value=1>1</option>
-				<option value=2>2</option>
-				<option value=3>3</option>
-				<option value=4>4</option>
-				<option value=5>5</option>
-				<option value=6>6</option>
-				<option value=7>7</option>
-				<option value=8>8</option>
-				<option value=9>9</option>
-				<option value=10>10</option>
-				<option value=11>11</option>
-			</select>
+				<?php
+				for ($i = 1; $i <= 11; $i++) {
+					$selected = (isset($_POST['number_of_rounds']) && $_POST['number_of_rounds'] == $i) ? 'selected' : '';
+					echo "<option value='$i' $selected>$i</option>";
+				}
+				?>
+ 			</select>
 		</p>
-		<input class="validate_button" type="submit" name="exec" value="Lancer le tirage au sort !"/>
+		<input id="tirageBtn" class="validate_button" type="submit" name="exec" value="Lancer le tirage au sort !"/>
 	</form>
 </body>
 
@@ -58,9 +64,10 @@ if(!empty($_POST["exec"]))
 	$categorie=$_POST["categorie"];
 	$number_of_rounds=$_POST["number_of_rounds"];
 	$output = shell_exec("bash tirage_VR4.sh $categorie $number_of_rounds");
-	echo "<pre class='script_output'>";
+	echo "<pre id='result' class='script_output'>";
 	echo $output;
 	echo "<pre>";
+
 }
 
 ?>

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 html {
-	font-family: Geneva, Calibri, Arial;
+	font-family: Roboto, Open Sans, Geneva, Calibri, Arial;
 }
 
 body {
@@ -12,7 +14,7 @@ body {
 
 .header {
 	position: relative;
-	margin: 5%;
+	margin: 2%;
 }
 
 h1 {
@@ -36,7 +38,7 @@ h1 {
 	background-color: white;
 	opacity: 0.7;
 	padding: 20px 20px 20px 20px;
-	margin: 5%
+	margin: 2%
 }
 
 .intro-title {
@@ -66,22 +68,30 @@ ul {
 
 .N1_N2_select {
 	width: 45%;
+	text-align: center;
+}
+
+.category-label {
+    margin-bottom: 15px;
+    display: block;
 }
 
 .number_of_rounds_select {
 	width: 45%;
+	text-align: center;
 }
 
 .number_of_rounds_list {
 	width: 40%;
-	height: 30px;
+	height: 60px;
 	border: 1px solid #999;
 	background-color: #eee;
 	border-radius: 5px;
-	margin-top: 5%;
+	margin-top: 3%;
 	font-size: 20px;
 }
 
+/*
 .validate_button {
 	font-size: 30px;
 	font-weight: bold;
@@ -90,6 +100,24 @@ ul {
 	background-color: #eee;
 	border-radius: 5px;
 }
+*/
+
+.validate_button {
+	background-color: #007bff;
+	border: none;
+	padding: 10px 20px;
+	color: white;
+	border-radius: 5px;
+	font-size: 30px;
+	font-weight: bold;
+	height: 50px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+.validate_button:hover {
+	background-color: #0056b3;
+}
+ 
 
 .script_output{
 	font-size: 1.6em;
@@ -97,8 +125,10 @@ ul {
 	background-color: white;
 	position: relative;
 	opacity: 0.5;
-	padding: 20px 20px 20px 20px;
-	margin: 5% 15%;
+	padding: 20px 100px;
+	margin: 2% auto;
+	width: 350px;
+	font-family: 'Roboto Mono', monospace;
 }
 
 @media screen and (max-width: 900px) {
@@ -126,3 +156,34 @@ ul {
 		height: auto;
 	}
 }
+
+input[type="radio"] {
+	appearance: none;
+	border: 2px solid #007bff;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	outline: none;
+	cursor: pointer;
+	transition: 0.3s;
+}
+  
+input[type="radio"]:checked {
+	background-color: #007bff;
+}
+
+select {
+appearance: none;
+background-color: #f8f9fa;
+border: 1px solid #ced4da;
+padding: 10px;
+font-size: 16px;
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+select:hover {
+border-color: #007bff;
+}
+  
