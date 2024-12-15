@@ -148,19 +148,18 @@ EOF
 
 fi
 
-cat <<EOF
-${tete_colonne[1]}		 ${figure[1]}       ${figure[2]}       ${figure[3]}       ${figure[4]}       ${figure[5]}       ${figure[6]}
-${tete_colonne[2]}		 ${figure[7]}       ${figure[8]}       ${figure[9]}       ${figure[10]}       ${figure[11]}       ${figure[12]}
-${tete_colonne[3]}		 ${figure[13]}       ${figure[14]}       ${figure[15]}       ${figure[16]}       ${figure[17]}       ${figure[18]}
-${tete_colonne[4]}		 ${figure[19]}       ${figure[20]}       ${figure[21]}       ${figure[22]}       ${figure[23]}       ${figure[24]}
-${tete_colonne[5]}		 ${figure[25]}       ${figure[26]}       ${figure[27]}       ${figure[28]}       ${figure[29]}       ${figure[30]}
-${tete_colonne[6]}		 ${figure[31]}       ${figure[32]}       ${figure[33]}       ${figure[34]}       ${figure[35]}       ${figure[36]}
-${tete_colonne[7]}		 ${figure[37]}       ${figure[38]}       ${figure[39]}       ${figure[40]}       ${figure[41]}       ${figure[42]}
-${tete_colonne[8]}		 ${figure[43]}       ${figure[44]}       ${figure[45]}       ${figure[46]}       ${figure[47]}       ${figure[48]}
-${tete_colonne[9]}		 ${figure[49]}       ${figure[50]}       ${figure[51]}       ${figure[52]}       ${figure[53]}       ${figure[54]}
-${tete_colonne[10]}	 	 ${figure[55]}       ${figure[56]}       ${figure[57]}       ${figure[58]}       ${figure[59]}       ${figure[60]}
-${tete_colonne[11]}		 ${figure[61]}       ${figure[62]}       ${figure[63]}       ${figure[64]}       ${figure[65]}       ${figure[66]}	
+for i in $(seq $nb_manches); do
+	if (( i < 10 )); then
+		cat <<EOF
+${tete_colonne[i]}   -->  ${figure[6*i-5]} ${figure[6*i-4]} ${figure[6*i-3]} ${figure[6*i-2]} ${figure[6*i-1]} ${figure[6*i]}
 EOF
+	else
+		cat <<EOF
+${tete_colonne[i]}  -->  ${figure[6*i-5]} ${figure[6*i-4]} ${figure[6*i-3]} ${figure[6*i-2]} ${figure[6*i-1]} ${figure[6*i]}
+EOF
+	fi
+done
+
 }
 
 main(){

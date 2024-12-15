@@ -1,3 +1,7 @@
+html {
+	font-family: Geneva, Calibri, Arial;
+}
+
 body {
 	background-image: url("background.png");
 	background-attachment: fixed;
@@ -8,42 +12,35 @@ body {
 
 .header {
 	position: relative;
-	height: 100%;
-	width: 100%;
+	margin: 5%;
 }
 
 h1 {
-	font-family:'Courier New', Courier, monospace;
-	font-size: 20px;
+	font-size: 50px;
+	font-weight: bold;
 	text-align: center;
 	vertical-align: middle;
 	border: none;
 	border-radius: 20px;
 	background-color: white;
-	opacity: 0.6;
+	opacity: 0.7;
 	padding: 20px 20px 20px 20px;
-	position: absolute;
-	left: 50%;
-	right: 10%;
-	top: 65%;
 }
 
 .introduction {
-	font-size: 1.8em;
+	font-size: 30px;
 	text-align: center;
 	vertical-align: middle;
 	border: none;
 	border-radius: 20px;
 	background-color: white;
-	opacity: 0.5;
+	opacity: 0.7;
 	padding: 20px 20px 20px 20px;
-	width : 70%;
-	position: relative;
-	left: 15%;
+	margin: 5%
 }
 
 .intro-title {
-	font-size: 1.2em;
+	font-size: 40px;
 	font-weight: bold;
 }
 
@@ -55,46 +52,77 @@ ul {
 }
 
 .form {
-	font-size: 1.8em;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	font-size: 30px;
 	border: none;
-        border-radius: 20px;
-        background-color: white;
-        opacity: 0.5;
-        padding: 20px 20px 20px 20px;
-        width : 60%;
-        position: absolute;    
-        left: 20%;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	height: 400px;
-}
-
-.form p {
-	width: 40%;
+	border-radius: 20px;
+	background-color: white;
+	opacity: 0.7;
+	padding: 20px 20px 20px 20px;
+	margin: 0 15%;   
 }
 
 .N1_N2_select {
-	float: left;
-	margin-left: 5%
+	width: 45%;
 }
 
 .number_of_rounds_select {
-	
-	float: left;
-	margin-left: 10%;
-	margin-right: 5%;
+	width: 45%;
+}
+
+.number_of_rounds_list {
+	width: 40%;
+	height: 30px;
+	border: 1px solid #999;
+	background-color: #eee;
+	border-radius: 5px;
+	margin-top: 5%;
+	font-size: 20px;
 }
 
 .validate_button {
-	position: relative;
-	font-size: 1em;
+	font-size: 30px;
 	font-weight: bold;
+	height: 50px;
+	border: 1px solid #999;
+	background-color: #eee;
+	border-radius: 5px;
 }
 
 .script_output{
 	font-size: 1.6em;
+	border-radius: 20px;
+	background-color: white;
 	position: relative;
-	left: 22%;
-	top: 30%;
-	width: 60%;
+	opacity: 0.5;
+	padding: 20px 20px 20px 20px;
+	margin: 5% 15%;
+}
+
+@media screen and (max-width: 900px) {
+	.form {
+		flex-flow: column wrap;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.N1_N2_select {
+		width: 90%;
+		margin-bottom: 0;
+	}
+
+	.number_of_rounds_select {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.validate_button {
+		display: inline;
+		width: 90%;
+		height: auto;
+	}
 }
