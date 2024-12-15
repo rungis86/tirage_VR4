@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" href="style.css" />
 	<title>Tirage au sort VR4</title>
 </head>
